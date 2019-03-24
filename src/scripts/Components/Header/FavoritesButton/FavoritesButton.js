@@ -1,6 +1,6 @@
 import {Component} from "../../../framework";
 import AppState from "../../../Services/AppState";
-import { CLASSES } from "../../../../Services/constants";
+import {CLASSES, renderLoader} from "../../../../Services/constants";
 
 class FavoritesButton extends Component {
     constructor(host, props) {

@@ -36,6 +36,7 @@ class UnitSelect extends Component {
         return [
             {
                 tag: 'label',
+                classList: 'search__units_label',
                 attributes: [
                     {name: 'for', value: 'units'},
                 ],
@@ -52,13 +53,6 @@ class UnitSelect extends Component {
                                 change: this.handleUnitChange,
                         },
                         children: [
-                            // {
-                            //     tag: 'option',
-                            //     content: '&nbsp;',
-                            //     attributes: [
-                            //         {name: 'value', value: ''},
-                            //     ],
-                            // },
                             {
                                 tag: 'option',
                                 content: '&deg;C',

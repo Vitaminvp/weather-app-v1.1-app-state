@@ -99,7 +99,31 @@ h1:hover {
 
 .search__units {
     padding-left: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
+
+.search__units_label{
+    &:after{
+        display: inline-block;
+        position: absolute;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Font Awesome 5 Free", sans-serif;
+        font-weight: 900;
+        content: "\f078";
+        color: white;
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%) scale(0.7);
+        z-index: -1;
+        text-shadow: none;
+    }
+}
+
 
 .search__input {
     width: 100%;
