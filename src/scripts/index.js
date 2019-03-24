@@ -1,4 +1,3 @@
-// import "babel-polyfill";
 import "normalize.css";
 import "../style/grid.css";
 import "../style/style.scss";
