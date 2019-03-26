@@ -10,11 +10,12 @@ class WeatherForecastItem extends Component{
         this.onClick = this.onClick.bind(this);
     }
     onClick(){
-        AppState.update('CURRENT', this.props);
+        let stateToUpdate = {...this.props};
+        delete stateToUpdate['sys'];
+        AppState.update('CURRENT', stateToUpdate);
     }
     render() {
         const {dt, main, weather, unit} = this.props;
-        console.log("this.props", this.props);
         return [
             {
                 tag: 'div',

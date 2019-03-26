@@ -23,7 +23,6 @@ class CurrentWeather extends Component{
     }
 
     render() {
-        console.log("this.state", this.state);
         const { dt, name, sys, wind, main, weather, id, unit } = this.state || '';
         return [
             {
