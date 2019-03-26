@@ -1,12 +1,20 @@
 import {Component} from "../../../framework/";
-import {convertToDay, convertTempUnit} from "../../../../Services/constants";
+import {convertToDay, convertToData, convertTempUnit} from "../../../../Services/constants";
+import AppState from "../../../Services/AppState";
 
 class WeatherForecastItem extends Component{
     constructor(host, props) {
         super(host, props);
     }
+    componentWillMount() {
+        this.onClick = this.onClick.bind(this);
+    }
+    onClick(){
+        AppState.update('CURRENT', this.props);
+    }
     render() {
         const {dt, main, weather, unit} = this.props;
+        console.log("this.props", this.props);
         return [
             {
                 tag: 'div',
@@ -24,6 +32,11 @@ class WeatherForecastItem extends Component{
                             },
                             {
                                 tag: 'div',
+                                classList: ['week__forecast_data'],
+                                content: `${convertToData(dt)}`
+                            },
+                            {
+                                tag: 'div',
                                 classList: ['week__forecast_img'],
                                 content: `<img  src="https://openweathermap.org/img/w/${weather[0].icon}.png" alt="${weather[0].description}" title="${weather[0].description}" >`//'<i class="fas fa-cloud-sun-rain"></i>'
                             },
@@ -34,7 +47,10 @@ class WeatherForecastItem extends Component{
                             },
                         ]
                     },
-                ]
+                ],
+                eventHandler: {
+                    click: this.onClick
+                }
             },
         ];
     }

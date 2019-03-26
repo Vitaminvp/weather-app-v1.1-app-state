@@ -19,12 +19,12 @@ class CurrentWeather extends Component{
         this.updateState(unit);
     }
     weatherCurrentUpdate(weatherCurrent){
-        this.updateState({weatherCurrent});
+        this.updateState({...weatherCurrent});
     }
 
     render() {
-        const { dt, name, sys, wind, main, weather, id } = this.state.weatherCurrent || '';
-        const { unit } = this.state;
+        console.log("this.state", this.state);
+        const { dt, name, sys, wind, main, weather, id, unit } = this.state || '';
         return [
             {
                 tag: 'section',
@@ -49,7 +49,7 @@ class CurrentWeather extends Component{
                                                     {
                                                         tag: 'h2',
                                                         classList: ['forecast__city'],
-                                                        content: `${name?name:''}, ${sys?sys.country:''}`,
+                                                        content: `${name?name:''}${sys&&sys.country?`, ${sys.country}`:''}`,
                                                         attributes: [
                                                             {name: 'id', value: id},
                                                         ],
