@@ -11,6 +11,13 @@ class SearchBar extends Component{
     }
 
     componentWillMount(){
+        this.input = document.createElement("input");
+        this.input.type = "text";
+        this.input.setAttribute("placeholder", "Type location...");
+        this.input.setAttribute("required", "");
+        this.input.setAttribute("autofocus", "");
+        this.input.classList.add("search__input");
+
         [ 'handleSubmit', 'handleAutocomplete' ]
             .forEach(name => this[name] = this[name].bind(this));
         this.handleAutocomplete();
@@ -20,10 +27,7 @@ class SearchBar extends Component{
 
     handleAutocomplete(){
 
-        setTimeout(()=>{
-            const input = document.querySelector(".search__input");
-            initAutocomplete(input, this.handleAutocomplete);
-        },100);
+        initAutocomplete(this.input, this.handleAutocomplete);
     }
 
     handleSubmit(e){
@@ -48,17 +52,18 @@ class SearchBar extends Component{
                        tag: 'label',
                        classList: 'search__input_label',
                        children: [
-                           {
-                               tag: 'input',
-                               classList: ['search__input'],
-                               attributes: [
-                                   {name: 'type', value: 'text'},
-                                   {name: 'placeholder', value: 'Type location...'},
-                                   {name: 'required', value: ''},
-                                   {name: 'autofocus', value: ''},
-                                   {name: 'autocomplete', value: 'off'},
-                               ]
-                           }
+                           // {
+                           //     tag: 'input',
+                           //     classList: ['search__input'],
+                           //     attributes: [
+                           //         {name: 'type', value: 'text'},
+                           //         {name: 'placeholder', value: 'Type location...'},
+                           //         {name: 'required', value: ''},
+                           //         {name: 'autofocus', value: ''},
+                           //         {name: 'autocomplete', value: 'off'},
+                           //     ]
+                           // }
+                           this.input
                        ]
                    }
                ]
