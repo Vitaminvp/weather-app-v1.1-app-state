@@ -26,16 +26,14 @@ class SearchBar extends Component{
     }
 
     handleAutocomplete(){
-
         initAutocomplete(this.input, this.handleAutocomplete);
     }
 
     handleSubmit(e){
         e.preventDefault();
-        const input = e.target.querySelector('.search__input');
-        const query = input.value.split(', ');
+        const query = this.input.value.split(', ');
         WeatherDataService.subscribeForWeather(query);
-        input.value = '';
+        this.input.value = '';
     };
 
     render(){
@@ -52,17 +50,6 @@ class SearchBar extends Component{
                        tag: 'label',
                        classList: 'search__input_label',
                        children: [
-                           // {
-                           //     tag: 'input',
-                           //     classList: ['search__input'],
-                           //     attributes: [
-                           //         {name: 'type', value: 'text'},
-                           //         {name: 'placeholder', value: 'Type location...'},
-                           //         {name: 'required', value: ''},
-                           //         {name: 'autofocus', value: ''},
-                           //         {name: 'autocomplete', value: 'off'},
-                           //     ]
-                           // }
                            this.input
                        ]
                    }
