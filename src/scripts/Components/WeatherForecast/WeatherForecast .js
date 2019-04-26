@@ -1,5 +1,4 @@
 import {Component} from "../../framework/";
-//import ComponentFactory from "../../framework/ComponentFactory";
 import {WeatherForecastItem} from "./WeatherForecastItem";
 import AppState from "../../Services/AppState";
 
@@ -38,7 +37,6 @@ class WeatherForecast extends Component {
                                 classList: ['row', 'renderItems'],
                                 children: (this.state.list.length)
                                     ? this.state.list
-                                        // .filter((item, i) => item.dt_txt.split(' ')[1] === '12:00:00')
                                         .filter((item, i) => i%7 === 0)
                                         .map(item => {
                                         return {
@@ -56,6 +54,5 @@ class WeatherForecast extends Component {
     }
 }
 
-//ComponentFactory.register(WeatherForecast);
 
 export default WeatherForecast;

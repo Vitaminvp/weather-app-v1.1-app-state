@@ -1,6 +1,5 @@
 import "babel-polyfill";
 import { Component } from "../../../framework";
-//import ComponentFactory from "../../../framework/ComponentFactory";
 import { initAutocomplete } from "../../../../Services/constants";
 import WeatherDataService from "../../../../Services/WeatherDataService";
 
@@ -59,6 +58,5 @@ class SearchBar extends Component{
     }
 }
 
-//ComponentFactory.register(SearchBar);
 
 export default SearchBar;

@@ -11,7 +11,6 @@ class Component{
     componentWillMount(){
 
     }
-    //handleAutocomplete(){}
 
     updateState(stateDelta) {
         this.state = Object.assign({}, this.state, stateDelta);
@@ -19,8 +18,6 @@ class Component{
     }
 
     _render() {
-        //console.log(this.constructor.name + "._render");
-        //return new Promise((resolve, reject) =>{
             this.host.innerHTML = "";
             let content = this.render();
 
@@ -28,19 +25,14 @@ class Component{
                 content = [ content ];
             }
 
-            // console.log(content);
 
             content.map(item => this._vDomPrototypeElementToHtmlElement(item)) // [string|HTMLElement] => [HTMLElement]
                 .forEach(htmlElement => {
                     this.host.appendChild(htmlElement);
                 });
 
-            //resolve(true);
-        //})
-        //console.log(this.constructor.name + "._render done");
 
     }
-    /* @returns {string|[string|HTMLElement|Component]} */
     render() {
         return 'OMG! They wanna see me!!!!!! Aaaaaa';
     }
@@ -51,10 +43,6 @@ class Component{
      * @private
      */
     _vDomPrototypeElementToHtmlElement(element) {
-        // const isHtmlTags = /(\<(\/?[^>]+)>$)/.test(element);
-        // if (isHtmlTags) {
-        //     element = parseJsx(element);
-        // }
 
         if (typeof element === 'string') {
             let container;
